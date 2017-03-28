@@ -1,0 +1,47 @@
++--------------------------------+
+|Code: 3684
+|   Client:  Dave Aberdeen
+|   Address: 1, Discovery Lane
+|   City:    Aurora, IN
+|   Zip:     97603
++--------------------------------+
+|Code: 5510
+|   Client:  Warren Anderson
+|   Address: 2938, 42nd Street
+|   City:    Aurora, CO
+|   Zip:     94123
++--------------------------------+
+|Code: 5719
+|   Client:  John Alland
+|   Address: Pier 43
+|   Zip:     97603
++--------------------------------+
+|Code: 1913
+|   Client:  Emerson McFougal
+|   Address: 145, South side
+|   City:    Chicago, IL
+|   Zip:     81002
++--------------------------------+
+|Code: 2001
+|   Client:  Doris Samuelson
+|   Address: 15, State Street
+|   City:    Birmingham, MI
+|   Zip:     98105
++--------------------------------+
+|Code: 4175
+|   Client:  Dave Alland
+|   Address: 5, South Plazza
+|   City:    Berkeley, MI
+|   Zip:     60542
++--------------------------------+
+|Code: 1909
+|   Client:  John Aberdeen
+|   Address: Time Square
+|   City:    Paris, TX
+|   Zip:     94704
++--------------------------------+
+|Code: 1969
+|   Client:  Craig O'Hare
+|   Address: 938 42nd Street
+|   City:    New York, DC
+|   Zip:     94123
