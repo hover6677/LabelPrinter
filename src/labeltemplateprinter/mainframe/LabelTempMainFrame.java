@@ -268,13 +268,13 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel15))
-                .add(18, 18, 18)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
                     .add(addBtn1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(resetBtn1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(countLabel1))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mailing", jPanel2);
@@ -359,7 +359,7 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
                         .add(countLabel2)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(resetBtn2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 66, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(18, 18, 18)
                         .add(addBtn2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(jPanel4Layout.createSequentialGroup()
                         .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
@@ -577,7 +577,7 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
             try {
                 System.out.println(((JTextField) selectedJTextField.get(i)).getName());
                 System.out.println(((JTextField) selectedJTextField.get(i)).getText());
-                o.append(((JTextField) selectedJTextField.get(i)).getName(), ((JTextField) selectedJTextField.get(i)).getText());
+                o.put(((JTextField) selectedJTextField.get(i)).getName(), ((JTextField) selectedJTextField.get(i)).getText());
                 ((JTextField) selectedJTextField.get(i)).setText("");
 
             } catch (JSONException ex) {
@@ -652,7 +652,7 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
 
         for (int i = 0; i < selectedJTextField.size(); i++) {
             if (((JTextField) selectedJTextField.get(i)).getText() == null
-                    || "[\"\"]".equals(((JTextField) selectedJTextField.get(i)).getText())) {
+                    || "".equals(((JTextField) selectedJTextField.get(i)).getText())) {
                 return false;
             }
         }
@@ -664,7 +664,7 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
 
         for (int i = 0; i < selectedJTextField.size(); i++) {
             if (((JTextField) selectedJTextField.get(i)).getText() != null
-                    || !"[\"\"]".equals(((JTextField) selectedJTextField.get(i)).getText())) {
+                    || !"".equals(((JTextField) selectedJTextField.get(i)).getText())) {
                 return false;
             }
         }
