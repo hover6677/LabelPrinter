@@ -5,17 +5,12 @@
  */
 package labeltemplateprinter.application;
 
-import java.awt.Component;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import static labeltemplateprinter.application.MailingTemplate.formatRecords;
 import org.fileRW.FileRW;
 import org.json.JSONObject;
 
@@ -25,28 +20,40 @@ import org.json.JSONObject;
  */
 public class MainFrameApp {
 
-    private static int tabCount = 0;
+    private static int tabCount = 2;
     private static ArrayList recordList;
     private static ArrayList<ArrayList> templateList;
     private static final String desktopPath = System.getProperty("user.home") + "\\" + "Desktop";
-//    private static final ArrayList<String> dirList =new ArrayList<String> 
-//                    (Arrays.asList("D:/NetBeansProj/LabelTemplatePrinter/output/templateA/A.txt",
-//                            "D:/NetBeansProj/LabelTemplatePrinter/output/templateB/B.txt"));
-    private static final ArrayList<String> dirList = new ArrayList<String>(Arrays.asList(desktopPath + "\\Mailing.txt",
-            desktopPath + "\\Identity.txt"));
+    private static final String targetDir = "C:\\Customer accounts\\Sentinal demo\\Input folder";
+    private static ArrayList<String> dirList;
     private static String dir;
     private static FileRW fileRW;
 
     public static void MainFrameApp() {
         MainFrameApp.fileRW = new FileRW();
+        if (dirExist(targetDir)) {
+            dirList = new ArrayList<String>(Arrays.asList(targetDir + "\\Mailing.txt",
+                    targetDir + "\\Identity.txt"));
+        } else {
+            dirList = new ArrayList<String>(Arrays.asList(desktopPath + "\\Mailing.txt",
+                    desktopPath + "\\Identity.txt"));
+            System.out.println("dir NOT exsists");
+        }
         MainFrameApp.recordList = new ArrayList();
         MainFrameApp.templateList = new ArrayList();
+
         for (int i = 0; i < tabCount; i++) {
             templateList.add(new ArrayList());
         }
     }
 
+    private static boolean dirExist(String dir) {
+        return new File(dir).exists() && new File(dir).isDirectory();
+    }
+
     public static void readyToSave(int templateIndex) {
+        if(null==templateList ||templateList.size()<=templateIndex)
+            return;
         MainFrameApp.dir = (String) MainFrameApp.dirList.get(templateIndex);
         MainFrameApp.recordList.clear();
         ArrayList formatRecords = applyTemplateFormater(templateIndex, (ArrayList) templateList.get(templateIndex));
@@ -83,9 +90,7 @@ public class MainFrameApp {
                 MainFrameApp.fileRW.closeWriter();
                 clearRecordList();
             }
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
@@ -136,10 +141,15 @@ public class MainFrameApp {
     }
 
     private static void clearRecordList() {
-        MainFrameApp.recordList.clear();
+        if (null != MainFrameApp.recordList) {
+            MainFrameApp.recordList.clear();
+        }
     }
 
     public static void clearRecordListByTemplate(int index) {
+        if (null == MainFrameApp.templateList || MainFrameApp.templateList.size()<=index) {
+            return;
+        }
         MainFrameApp.templateList.get(index).clear();
         MainFrameApp.clearRecordList();
     }

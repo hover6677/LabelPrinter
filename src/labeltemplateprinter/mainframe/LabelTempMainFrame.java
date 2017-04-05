@@ -37,9 +37,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-import javax.swing.event.ChangeListener;
 import labeltemplateprinter.application.MainFrameApp;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,9 +48,9 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
      * Creates new form Antenna
      */
     public LabelTempMainFrame() {
+        MainFrameApp.MainFrameApp();
         initComponents();
         MainFrameApp.setTabCount(this.jTabbedPane1.getTabCount());
-        MainFrameApp.MainFrameApp();
     }
 
     /**
@@ -417,7 +415,7 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(140, 242));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\NetBeansProj\\LabelTemplatePrinter\\pic\\Barcode.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Barcode.jpg"))); // NOI18N
 
         clearBtn.setText("Clear");
         clearBtn.setMaximumSize(new java.awt.Dimension(75, 30));
@@ -470,7 +468,7 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
         dirLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         dirLabel.setAlignmentX(0.2F);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\NetBeansProj\\LabelTemplatePrinter\\pic\\logo.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logo.png"))); // NOI18N
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -635,7 +633,7 @@ public class LabelTempMainFrame extends javax.swing.JFrame {
             try {
                 String next = keys.next().toString();
                 System.out.println(o.get(next));
-                if (o.get(next) == null || "[\"\"]".equals(o.get(next).toString())) {
+                if (o.get(next) == null || "".equals(o.get(next).toString())) {
                     System.out.println(o.get(next));
                     return false;
                 }
