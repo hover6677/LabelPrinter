@@ -24,6 +24,7 @@ public class IdentityTemplate {
     private static final String Address = "Address";
     private static final String Zip = "Zip";
     private static final String LineDilimiter = "+--------------------------------+";
+    private static final String NewLine = System.getProperty("line.separator");
 
     public static ArrayList formatRecords(ArrayList<JSONObject> jsonlist) {
        list = new ArrayList();
@@ -34,11 +35,11 @@ public class IdentityTemplate {
                 String line = "";
                 try {
                     JSONObject record = jsonlist.get(i);
-                    line += LineDilimiter+"\n";
-                    line += "|"+Code+": "+record.getString(Code)+"\n";
-                    line += "|   "+Client+":  "+ record.getString(Client)+"\n";
-                    line += "|   "+Address+": "+ record.getString(Address)+"\n";
-                    line += "|   "+City+":    "+ record.getString(City)+"\n";
+                    line += LineDilimiter+NewLine;
+                    line += "|"+Code+": "+record.getString(Code)+NewLine;
+                    line += "|   "+Client+":  "+ record.getString(Client)+NewLine;
+                    line += "|   "+Address+": "+ record.getString(Address)+NewLine;
+                    line += "|   "+City+":    "+ record.getString(City)+NewLine;
                     line += "|   "+Zip+":     "+ record.getString(Zip);
                     
                 } catch (JSONException ex) {
